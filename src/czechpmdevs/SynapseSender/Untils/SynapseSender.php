@@ -2,6 +2,8 @@
 namespace czechpmdevs\SynapseSender\Untils;
 
 use czechpmdevs\SynapseSender\event\PlayerChangeServerEvent;
+use czechpmdevs\SynapseSender\event\PlayerHubTransferEvent;
+use czechpmdevs\SynapseSender\StaffManager\Manager;
 use czechpmdevs\SynapseSender\SynapsePlus;
 use pocketmine\block\Thin;
 use pocketmine\item\Item;
@@ -17,10 +19,22 @@ class SynapseSender{
 
     public $synapses;
 
+    /** @var Manager */
+    private $staffManager;
+
+    private static $instance;
+
     public function __construct(SynapsePlus $synapsePlus){
         $this->synapsePlus = $synapsePlus;
+        $this->staffManager = new Manager($this);
 
         $this->reloadSynapses();
+        self::$instance = $this;
+    }
+
+    /** @return SynapseSender */
+    public static function getInstance(){
+        return self::$instance;
     }
 
 
@@ -31,21 +45,30 @@ class SynapseSender{
     }
 
     /**
-     * @return mixed
+     * @return array
      */
     public function getSynapses(){
         return $this->synapses;
+    }
+
+    /** @return Manager */
+    public function getStaffManager(){
+        return $this->staffManager;
     }
 
     //Begin of Main Functions
 
     /**
      * @param SPlayer $player
+     * @throws \ReflectionException
      */
     public function gotoLobby(SPlayer $player){
         $lobby = $this->synapsePlus->cfg->get("LobbyServers");
         $lobby = $lobby[rand(0, count($lobby))];
         $player->synapseTransferByDesc($lobby);
+
+        $event = new PlayerHubTransferEvent($this, $lobby);
+        $event->call();
     }
 
     /**
