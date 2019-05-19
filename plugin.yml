@@ -1,0 +1,22 @@
+name: SynapsePlus
+main: czechpmdevs\SynapseSender\SynapsePlus
+version: 1.0.0
+api: 3.0.0
+
+permissions:
+ sp.plus:
+  default: true
+  description: Allows do all SynapsePlus commads
+  children:
+   sp.plus.message:
+    default: true
+    description: Send Message to Player
+   sp.plus.messageall:
+    default: op
+    description: Send Message for all Players
+   sp.plus.kick:
+    default: op
+    description: Kick Player from every server
+   sp.plus.hub:
+    default: true
+    description: Teleports Player to Lobby Server

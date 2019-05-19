@@ -1,0 +1,10 @@
+###############
+# SynapsePlus
+# by CzechPMDevs
+###############
+
+#Set Lobbies
+#You can set one lobby server or multiple
+LobbyServers:
+  - "Main"
+  - "Main"
