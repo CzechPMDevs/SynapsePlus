@@ -2,7 +2,6 @@
 
 namespace czechpmdevs\SynapseSender;
 
-
 use czechpmdevs\SynapseSender\commands\SynapsePlusCommands;
 use czechpmdevs\SynapseSender\Untils\SynapseSender;
 use czechpmdevs\SynapseSender\Untils\Text;
@@ -14,19 +13,19 @@ use pocketmine\utils\Config;
 use synapsepm\network\protocol\spp\PluginMessagePacket;
 use synapsepm\SynapsePM;
 
-class SynapsePlus extends PluginBase implements Listener{
+class SynapsePlus extends PluginBase implements Listener {
+
     /** @var Config */
     public $cfg;
 
-    /**
-     * @var Command[] $commands
-     */
+    /** @var Command[] $commands */
     private $commands = [];
 
     private $API;
     private static $instance;
     
-    public function onEnable(){
+    public function onEnable() {
+        new SynapsePMUpdater($this);
 		@mkdir($this->getDataFolder());
 		$this->saveDefaultConfig();
 		$this->cfg = $this->getConfig();

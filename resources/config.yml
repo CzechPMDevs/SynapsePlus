@@ -8,3 +8,6 @@
 LobbyServers:
   - "Main"
   - "Main"
+
+# Do not edit this. Plugin uses that to use newest version of
+SynapseVersion: "58198_10"

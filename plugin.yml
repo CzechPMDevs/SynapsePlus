@@ -2,6 +2,8 @@ name: SynapsePlus
 main: czechpmdevs\SynapseSender\SynapsePlus
 version: 1.0.0
 api: 3.0.0
+author: CzechPMDevs
+authors: [Alemiz112, VixikHD]
 
 permissions:
  sp.plus:
