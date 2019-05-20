@@ -1,8 +1,8 @@
 <?php
 
-namespace czechpmdevs\SynapseSender\StaffManager;
+namespace czechpmdevs\synapseplus\staffmanager;
 
-use czechpmdevs\SynapseSender\Untils\SynapseSender;
+use czechpmdevs\synapseplus\utils\SynapseSender;
 use synapsepm\Player as SPlayer;
 
 class Manager{

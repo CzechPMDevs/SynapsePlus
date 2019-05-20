@@ -1,9 +1,9 @@
 <?php
-namespace czechpmdevs\SynapseSender\commands;
+namespace czechpmdevs\synapseplus\commands;
 
-use czechpmdevs\SynapseSender\SynapsePlus;
-use czechpmdevs\SynapseSender\Untils\SynapseSender;
-use czechpmdevs\SynapseSender\Untils\Text;
+use czechpmdevs\synapseplus\SynapsePlus;
+use czechpmdevs\synapseplus\utils\SynapseSender;
+use czechpmdevs\synapseplus\utils\Text;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginIdentifiableCommand;

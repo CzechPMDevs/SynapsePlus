@@ -1,8 +1,8 @@
 <?php
 
-namespace czechpmdevs\SynapseSender\event;
+namespace czechpmdevs\synapseplus\event;
 
-use czechpmdevs\SynapseSender\Untils\SynapseSender;
+use czechpmdevs\synapseplus\utils\SynapseSender;
 use synapsepm\event\Event;
 
 class PlayerHubTransferEvent extends Event{

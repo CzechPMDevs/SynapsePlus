@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace czechpmdevs\SynapseSender;
+namespace czechpmdevs\synapseplus;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 
 /**
  * Class SynapsePMUpdater
- * @package czechpmdevs\SynapseSender
+ * @package czechpmdevs\synapseplus
  */
 class SynapsePMUpdater {
 

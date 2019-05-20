@@ -1,10 +1,10 @@
 <?php
-namespace czechpmdevs\SynapseSender\Untils;
+namespace czechpmdevs\synapseplus\utils;
 
-use czechpmdevs\SynapseSender\event\PlayerChangeServerEvent;
-use czechpmdevs\SynapseSender\event\PlayerHubTransferEvent;
-use czechpmdevs\SynapseSender\StaffManager\Manager;
-use czechpmdevs\SynapseSender\SynapsePlus;
+use czechpmdevs\synapseplus\event\PlayerChangeServerEvent;
+use czechpmdevs\synapseplus\event\PlayerHubTransferEvent;
+use czechpmdevs\synapseplus\staffmanager\Manager;
+use czechpmdevs\synapseplus\SynapsePlus;
 use pocketmine\block\Thin;
 use pocketmine\item\Item;
 use synapsepm\Player;

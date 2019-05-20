@@ -38,6 +38,7 @@ Player is still connected to the nemisys server, then the packets are transferre
 5) Run `start.cmd` script 
 
 ### SynapsePlus Installation
+- Put SynapsePlus.phar to /plugins/ directory on every PocketMine server
 - Plugin automatically downloads last stable build of SynapsePM plugin (is required to running SynapsePlus)
 
 ## 💰 Credits  

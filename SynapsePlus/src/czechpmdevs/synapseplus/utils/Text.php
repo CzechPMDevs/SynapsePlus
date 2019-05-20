@@ -1,5 +1,5 @@
 <?php
-namespace czechpmdevs\SynapseSender\Untils;
+namespace czechpmdevs\synapseplus\utils;
 
 use pocketmine\utils\TextFormat;
 

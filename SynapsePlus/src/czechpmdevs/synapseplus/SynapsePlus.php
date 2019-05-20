@@ -1,10 +1,10 @@
 <?php
 
-namespace czechpmdevs\SynapseSender;
+namespace czechpmdevs\synapseplus;
 
-use czechpmdevs\SynapseSender\commands\SynapsePlusCommands;
-use czechpmdevs\SynapseSender\Untils\SynapseSender;
-use czechpmdevs\SynapseSender\Untils\Text;
+use czechpmdevs\synapseplus\commands\SynapsePlusCommands;
+use czechpmdevs\synapseplus\utils\SynapseSender;
+use czechpmdevs\synapseplus\utils\Text;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\event\Listener;

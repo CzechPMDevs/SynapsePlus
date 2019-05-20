@@ -1,7 +1,7 @@
 <?php
-namespace czechpmdevs\SynapseSender\event;
+namespace czechpmdevs\synapseplus\event;
 
-use czechpmdevs\SynapseSender\Untils\SynapseSender;
+use czechpmdevs\synapseplus\utils\SynapseSender;
 use pocketmine\event\Event;
 use pocketmine\Player;
 
