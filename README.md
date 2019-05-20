@@ -1,4 +1,4 @@
-# SynapsePluse [under development]
+# SynapsePlus [under development]
 
 ## 🔧 How it works:
 
