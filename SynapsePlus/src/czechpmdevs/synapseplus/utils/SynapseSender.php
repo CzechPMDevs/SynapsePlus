@@ -3,7 +3,7 @@ namespace czechpmdevs\synapseplus\utils;
 
 use czechpmdevs\synapseplus\event\PlayerChangeServerEvent;
 use czechpmdevs\synapseplus\event\PlayerHubTransferEvent;
-use czechpmdevs\synapseplus\staffmanager\Manager;
+use czechpmdevs\synapseplus\staffmanager\StaffManager;
 use czechpmdevs\synapseplus\SynapsePlus;
 use pocketmine\block\Thin;
 use pocketmine\item\Item;
@@ -11,22 +11,20 @@ use synapsepm\Player;
 use synapsepm\Synapse;
 use synapsepm\Player as SPlayer;
 
-
-
 class SynapseSender{
 
     public $synapsePlus;
 
     public $synapses;
 
-    /** @var Manager */
+    /** @var StaffManager */
     private $staffManager;
 
     private static $instance;
 
     public function __construct(SynapsePlus $synapsePlus){
         $this->synapsePlus = $synapsePlus;
-        $this->staffManager = new Manager($this);
+        $this->staffManager = new StaffManager($this);
 
         $this->reloadSynapses();
         self::$instance = $this;
@@ -51,7 +49,7 @@ class SynapseSender{
         return $this->synapses;
     }
 
-    /** @return Manager */
+    /** @return StaffManager */
     public function getStaffManager(){
         return $this->staffManager;
     }

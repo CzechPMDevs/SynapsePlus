@@ -1,6 +1,7 @@
 <?php
 namespace czechpmdevs\synapseplus\commands;
 
+use czechpmdevs\synapseplus\staffmanager\StaffManager;
 use czechpmdevs\synapseplus\SynapsePlus;
 use czechpmdevs\synapseplus\utils\SynapseSender;
 use czechpmdevs\synapseplus\utils\Text;
@@ -31,7 +32,7 @@ class SynapsePlusCommands extends Command implements PluginIdentifiableCommand{
                 "§7/sp message <player> <message> : Send Message to Player\n".
                 "§7/sp messageall <message>: Send Message for all Players\n".
                 "§7/sp kick : Kick Player from every Server\n" .
-                "§7/sp hub: Teleports Player to Lobby Server".
+                "§7/sp hub: Teleports Player to Lobby Server\n".
                 "§7/sp staff: Staff Chat");
             return;
         }
@@ -72,8 +73,19 @@ class SynapsePlusCommands extends Command implements PluginIdentifiableCommand{
                                          "§7/staff <message> For single message");
                     break;
                 }
-                if ($args[1] == "on" or "off"){
-                    
+                switch ($args[1]){
+                    case "on":
+                        StaffManager::getInstance()->addChatter($sender);
+                        break;
+                    case "off":
+                        StaffManager::getInstance()->removeChatter($sender);
+                        break;
+                    default:
+                        $message = $args;
+                        unset($message[0]);
+                        $message = implode(" ", $message);
+                        StaffManager::getInstance()->sendMessage($sender,$message);
+                        break;
                 }
         }
 

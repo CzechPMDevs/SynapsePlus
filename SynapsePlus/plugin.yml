@@ -1,5 +1,5 @@
 name: SynapsePlus
-main: czechpmdevs\SynapseSender\SynapsePlus
+main: czechpmdevs\synapseplus\SynapsePlus
 version: 1.0.0
 api: 3.0.0
 author: CzechPMDevs
@@ -22,3 +22,6 @@ permissions:
    sp.plus.hub:
     default: true
     description: Teleports Player to Lobby Server
+   sp.plus.staff:
+    default: op
+    description: Allow Staff To use StaffChat Features

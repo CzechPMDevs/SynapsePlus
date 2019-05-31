@@ -3,15 +3,19 @@
 namespace czechpmdevs\synapseplus;
 
 use czechpmdevs\synapseplus\commands\SynapsePlusCommands;
+use czechpmdevs\synapseplus\staffmanager\StaffManager;
 use czechpmdevs\synapseplus\utils\SynapseSender;
 use czechpmdevs\synapseplus\utils\Text;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 use synapsepm\network\protocol\spp\PluginMessagePacket;
 use synapsepm\SynapsePM;
+use synapsepm\Player as SPlayer;
 
 class SynapsePlus extends PluginBase implements Listener {
 
@@ -23,7 +27,7 @@ class SynapsePlus extends PluginBase implements Listener {
 
     private $API;
     private static $instance;
-    
+
     public function onEnable() {
         new SynapsePMUpdater($this);
 		@mkdir($this->getDataFolder());
@@ -52,31 +56,22 @@ class SynapsePlus extends PluginBase implements Listener {
     public static function getInstance(){
         return self::$instance;
     }
-    
-    public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
-		switch($command->getName()){
-			case "info":
-			    /** @var SynapsePM */
-			    $synapsePM = $this->getServer()->getPluginManager()->getPlugin('SynapsePM');
-                //$synapsePM = new SynapsePM();
-               $synapses = $synapsePM->getSynapses();
 
-               $message = "SkyWars:Alemiz112,alemiz003";
+    //TODO: Maybe separated listener ??
+    public function onJoin(PlayerJoinEvent $event){
+        $player = $event->getPlayer();
+        if (!$player instanceof SPlayer) return;
+        if ($player->hasPermission("sp.plus.staff")){
+            StaffManager::getInstance()->addStaff($player);
+        }
+    }
 
-               foreach ($synapses as $synapse){
-                   $pk = new PluginMessagePacket();
-                   $pk->channel = "ServerPM";
-                   $pk->data = $message;
-                   $synapse->sendDataPacket($pk);
-               }
-                $this->getLogger()->info("Packet Sent");
-
-
-                return true;
-		}
-	}
-    public function onDisable() {
-        $this->getLogger()->info("Plugin has been dissabled!");
+    public function onQuit(PlayerQuitEvent $event){
+        $player = $event->getPlayer();
+        if (!$player instanceof SPlayer) return;
+        if ($player->hasPermission("sp.plus.staff")){
+            StaffManager::getInstance()->removeStaff($player);
+        }
     }
 }
 
